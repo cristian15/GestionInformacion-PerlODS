@@ -20,8 +20,6 @@ print $fh "<Personas>\n";
 my $j=1;
 while(my $linea = <FILE>)
 {
-	
-	
 	my @info = split(',',$linea);
 	print $fh "<Persona$j>\n";
 	my $i=0;
@@ -31,7 +29,6 @@ while(my $linea = <FILE>)
 		print $fh "<$c>$dato</$c>\n"; 
 		$i++;
 	}
-	
 	print $fh "</Persona$j>\n";	
 	$j++;
 	
