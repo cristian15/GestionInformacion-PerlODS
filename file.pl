@@ -3,15 +3,33 @@
 
 open FILE, "lista_de_usuarios.csv" or die $!; 	
 
+open my $fh,'>','archivoXML.xml' or die $!;		# archivo final
+
+
+
 my @cabeceras = split(',',<FILE>);		# saca las etiquetas
 
 print "@cabeceras[0]\n\n";
 foreach	my $v (@cabeceras)
 {
+	$v =~ s/\s/_/;	# reemplaza espacios, para evitar errores
 	print "$v\n";
 }
 
+print $fh "<?xml version='1.0' encoding='UTF-8'?>\n";
+print $fh "<persona>\n";
 while(my $linea = <FILE>)
 {
-	print "$linea\n";
+	
+	
+	my @info = split(',',$linea);
+	my $i=0;
+	
+	foreach my $dato (@info)
+	{	
+		my $c = @cabeceras[$i];
+		print $fh "<$c>$dato</$c>\n"; 
+		$i++;
+	}	
 }
+print $fh "</persona>\n";
