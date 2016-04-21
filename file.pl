@@ -1,5 +1,10 @@
 #!/usr/bin/perl
 
+#	Nombre: Cristian Beltran
+#	Profesor: Alejandro Mellado
+#	Descripcion: Crear Un archivo xml desde un csv
+#	Carrera: Ing Civil Informatica UCT
+
 
 open FILE, "lista_de_usuarios.csv" or die $!; 	
 

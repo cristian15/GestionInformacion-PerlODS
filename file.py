@@ -1,5 +1,11 @@
 #!/usr/bin/python
 
+#	Nombre: Cristian Beltran
+#	Profesor: Alejandro Mellado
+#	Descripcion: Lee archivo xml con libreria y lo muestra
+#	Carrera: Ing Civil Informatica UCT
+
+
 import xml.etree.ElementTree as XML
 
 root = XML.parse('archivoXML.xml').getroot()
