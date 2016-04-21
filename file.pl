@@ -17,19 +17,24 @@ foreach	my $v (@cabeceras)
 }
 
 print $fh "<?xml version='1.0' encoding='UTF-8'?>\n";
-print $fh "<persona>\n";
+print $fh "<personas>\n";
+my $j=1;
 while(my $linea = <FILE>)
 {
 	
 	
 	my @info = split(',',$linea);
+	print $fh "<persona_$j>\n";
 	my $i=0;
-	
 	foreach my $dato (@info)
 	{	
 		my $c = @cabeceras[$i];
 		print $fh "<$c>$dato</$c>\n"; 
 		$i++;
-	}	
+	}
+	
+	print $fh "</persona_$j>\n";	
+	$j++;
+	
 }
-print $fh "</persona>\n";
+print $fh "</personas>\n";
