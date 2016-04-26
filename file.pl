@@ -7,17 +7,14 @@
 
 
 open FILE, "lista_de_usuarios.csv" or die $!; 	
-
 open my $fh,'>','archivoXML.xml' or die $!;		# archivo final
 
 
-
-my @cabeceras = split(',',<FILE>);		# saca las etiquetas
+my @cabeceras = split(',',<FILE>);		# obtiene las etiquetas
 
 foreach	my $v (@cabeceras)
 {
 	$v =~ s/\s/_/;	# reemplaza espacios, para evitar errores
-	#print "$v\n";
 }
 
 print $fh "<?xml version='1.0' encoding='UTF-8'?>\n";
@@ -38,6 +35,9 @@ while(my $linea = <FILE>)
 	$j++;
 	
 }
+
 print $fh "</Personas>\n";
 
+close($fh);
+close(FILE);
 print "Archivo Creado Exitosamente!!\n";
